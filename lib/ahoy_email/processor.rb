@@ -2,7 +2,7 @@ module AhoyEmail
   class Processor
     attr_reader :mailer, :options
 
-    UTM_PARAMETERS = %w(utm_source utm_medium utm_term utm_content utm_campaign bento_identify)
+    UTM_PARAMETERS = %w(utm_source utm_medium utm_term utm_content utm_campaign bento_identify bento_uuid)
 
     def initialize(mailer, options)
       @mailer = mailer
