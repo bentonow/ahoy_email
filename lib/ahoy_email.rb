@@ -31,6 +31,7 @@ module AhoyEmail
     bento_identify: nil,
     bento_uuid: nil,
     utm_campaign: nil,
+    open_top: false,
     user: -> { @user || (respond_to?(:params) && params && params[:user]) || (message.to.try(:size) == 1 ? (User.find_by(email: message.to.first) rescue nil) : nil) },
     mailer: -> { "#{self.class.name}##{action_name}" },
     url_options: {},
