@@ -62,6 +62,8 @@ module AhoyEmail
         raw_source = part.body.raw_source
 
         regex = /<\/body>/i
+        regex_top = /<body .*>|<body>/i
+        
         url =
           url_for(
             controller: "ahoy/messages",
@@ -79,7 +81,7 @@ module AhoyEmail
         end
         
         if options[:open_top]
-          part.body = pixel + raw_source
+          part.body = raw_source.gsub(regex_top, "#{pixel}\\0")
         end
       end
     end
