@@ -62,7 +62,7 @@ module AhoyEmail
         raw_source = part.body.raw_source
 
         regex = /<\/body>/i
-        regex_top = /<body .*>|<body>/i
+        regex_top = /<head>/i
         
         url =
           url_for(
