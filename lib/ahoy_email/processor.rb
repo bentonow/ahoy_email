@@ -117,7 +117,7 @@ module AhoyEmail
                 id: token,
                 url: link["href"],
                 signature: signature
-              )
+              ).gsub("#{ENV['BASE_URL']}/ahoy/messages/", "#{ENV['BASE_URL'].gsub('app', 'track')}/tracking/emails/")
           end
         end
 
