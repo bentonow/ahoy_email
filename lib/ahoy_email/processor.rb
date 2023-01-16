@@ -70,7 +70,7 @@ module AhoyEmail
             action: "open",
             id: token,
             format: "gif"
-          )
+          ).gsub("#{ENV['BASE_URL']}/ahoy/messages/", "#{ENV['BASE_URL'].gsub('app', 'track')}/tracking/emails/")
         pixel = ActionController::Base.helpers.image_tag(url, size: "1x1", alt: "", style: "margin:0px!important;display:inherit;margin-bottom:0px")
 
         # try to add before body tag
