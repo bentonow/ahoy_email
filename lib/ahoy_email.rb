@@ -32,6 +32,7 @@ module AhoyEmail
     bento_uuid: nil,
     utm_campaign: nil,
     open_top: false,
+    custom_domain: 'https://track.bentonow.com',
     user: -> { @user || (respond_to?(:params) && params && params[:user]) || (message.to.try(:size) == 1 ? (User.find_by(email: message.to.first) rescue nil) : nil) },
     mailer: -> { "#{self.class.name}##{action_name}" },
     url_options: {},
