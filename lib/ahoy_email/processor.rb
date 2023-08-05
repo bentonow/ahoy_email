@@ -80,7 +80,7 @@ module AhoyEmail
         end
         
         if options[:open_top]
-          part.body = pixel + raw_source
+          part.body = pixel + part.body
         end
       end
     end
