@@ -63,7 +63,7 @@ module AhoyEmail
 
         regex = /<\/body>/i
         regex_top = /<body.*?>/i
-        
+
         url =
           url_for(
             controller: "ahoy/messages",
@@ -85,7 +85,8 @@ module AhoyEmail
           if raw_source.match(regex_top)
             part.body = raw_source.gsub(regex_top, "\\0#{pixel}")
           else
-            part.body = pixel + raw_source
+            # if the email does not have a body just do it normally.
+            part.body = raw_source + pixel
           end
         end
       end
