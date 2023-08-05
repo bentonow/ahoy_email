@@ -62,7 +62,7 @@ module AhoyEmail
         raw_source = part.body.raw_source
 
         regex = /<\/body>/i
-        regex_top = /<head>/i
+        regex_top = /<\/head>/i
         
         url =
           url_for(
@@ -81,7 +81,11 @@ module AhoyEmail
         end
         
         if options[:open_top]
-          part.body = raw_source.gsub(regex_top, "#{pixel}\\0")
+          if raw_source.match(regex_top)
+            part.body = raw_source.gsub(regex_top, "#{pixel}\\0")
+          else
+            part.body = pixel + raw_source + pixel
+          end
         end
       end
     end
