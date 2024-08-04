@@ -138,7 +138,7 @@ module AhoyEmail
     def skip_attribute?(link, suffix)
       attribute = "data-skip-#{suffix}"
 
-      skip_domains = ["twitter", "facebook", "fb.co", "https://t.co", "https://x.com", "http://t.co", "http://x.com", "tinyurl", 'bit.ly', 'owl.ly', 'dub.co', 'microsoft', 'netflix', 'amex', 'gmail', 'yahoo', 'hotmail']
+      skip_domains = ["twitter", "facebook", "fb.co", "https://t.co", "https://x.com", "http://t.co", "http://x.com", "tinyurl", 'bit.ly', 'owl.ly', 'dub.co', 'microsoft', 'netflix', 'amex']
 
       if link[attribute]
         # remove it
